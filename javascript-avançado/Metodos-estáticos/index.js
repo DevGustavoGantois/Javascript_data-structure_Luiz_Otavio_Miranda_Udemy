@@ -38,3 +38,5 @@ console.log(RemoteControl.sum(2, 4));
 
 //O método estático basicamente é uma função que está dentro de uma classe por questão de organizaão, mas poderiamos criar uma função separada e usar em uma classe também...
 RemoteControl.sum();
+
+//Os métodos estáticos não tem acesso aos dados da instância.
