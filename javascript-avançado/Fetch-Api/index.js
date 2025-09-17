@@ -10,16 +10,19 @@ fetch("pagina1.html")
 catch(e => console.error(e)); //Para erros.
 
 async function loadingPage(el) {
-    const href = el.getAttribute("href");
+    try {
+        const href = el.getAttribute("href");
     const response = await fetch(href)
     const html = await response.text();
     loadingPage(href);
-    
-    fetch(href)
+       fetch(href)
     .then(response => {
         if(response.status !== 200) throw new Error("ERRO 404!")
         response.text()
     })
     .then(html => loadingPage(html))
     .catch(e => console.log(e));
+    } catch (e) {
+        console.log(e)
+    }
 } 
